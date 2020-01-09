@@ -4,7 +4,7 @@
 //+------------------------------------------------------------------+
 
 #property copyright "kenorb"
-#property link      "https://github.com/jdelgadocr/MQL5-MQL4-Common"
+#property link      "https://github.com/EA31337"
 #property strict
 
 //+------------------------------------------------------------------+
@@ -401,25 +401,25 @@ int Seconds() {
   return tm.sec;
 }
 
-datetime TimeDay(datetime TargetTime) {
+int TimeDay(datetime TargetTime) {
   MqlDateTime tm;
   TimeToStruct(TargetTime,tm);
   return tm.day;
 }
 
-datetime TimeDayOfWeek(datetime TargetTime) {
+int TimeDayOfWeek(datetime TargetTime) {
   MqlDateTime tm;
   TimeToStruct(TargetTime,tm);
   return tm.day_of_week;
 }
 
-datetime TimeDayOfYear(datetime TargetTime) {
+int TimeDayOfYear(datetime TargetTime) {
   MqlDateTime tm;
   TimeToStruct(TargetTime,tm);
   return tm.day_of_year;
 }
 
-datetime TimeMonth(datetime TargetTime) {
+int TimeMonth(datetime TargetTime) {
   MqlDateTime tm;
   TimeToStruct(TargetTime,tm);
   return tm.mon;
