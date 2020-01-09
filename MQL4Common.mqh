@@ -4,7 +4,7 @@
 //+------------------------------------------------------------------+
 
 #property copyright "kenorb"
-#property link      "https://github.com/EA31337"
+#property link      "https://github.com/jdelgadocr/MQL5-MQL4-Common"
 #property strict
 
 //+------------------------------------------------------------------+
@@ -252,7 +252,7 @@ double AccountCredit() {
  * Returns the brokerage company name where the current account was registered.
  */
 string GetAccountCompany() {
-  AccountInfoString(ACCOUNT_COMPANY);
+  return AccountInfoString(ACCOUNT_COMPANY);
 }
 
 string AccountCurrency() {
@@ -260,11 +260,11 @@ string AccountCurrency() {
 }
 
 double AccountEquity() {
-  AccountInfoDouble(ACCOUNT_EQUITY);
+  return AccountInfoDouble(ACCOUNT_EQUITY);
 }
 
 double AccountFreeMargin() {
-  AccountInfoDouble(ACCOUNT_FREEMARGIN);
+  return AccountInfoDouble(ACCOUNT_FREEMARGIN);
 }
 
 /*
@@ -308,7 +308,7 @@ bool IsDemo() {
 }
 
 bool IsDllsAllowed() {
-  return (bool)MQL5InfoInteger(MQL5_DLLS_ALLOWED;
+  return (bool)MQL5InfoInteger(MQL5_DLLS_ALLOWED);
 }
 
 bool IsLibrariesAllowed() {
@@ -328,7 +328,7 @@ bool IsTradeAllowed() {
 }
 
 bool IsExpertEnabled() {
-  return (bool)TerminalInfoInteger(TERMINAL_EXPERTS_ENABLED);
+  return (bool)AccountInfoInteger(ACCOUNT_TRADE_EXPERT);
 }
 
 bool IsTradeContextBusy() {
@@ -340,7 +340,7 @@ bool IsVisualMode() {
 }
 
 string TerminalCompany() {
-  return TerminalInfoString(TERMINAL_COMPANY)
+  return TerminalInfoString(TERMINAL_COMPANY);
 }
 
 string TerminalName() {
@@ -368,13 +368,13 @@ int DayOfWeek() {
 int DayOfYear() {
   MqlDateTime tm;
   TimeCurrent(tm);
-  return DayOfYear=tm.day_of_year;
+  return tm.day_of_year;
 }
 
 int Month() {
   MqlDateTime tm;
   TimeCurrent(tm);
-  return tm.month;
+  return tm.mon;
 }
 
 int Year() {
@@ -386,13 +386,13 @@ int Year() {
 int Hour() {
   MqlDateTime tm;
   TimeCurrent(tm);
-  return Hour=tm.hour;
+  return tm.hour;
 }
 
 int Minute() {
   MqlDateTime tm;
   TimeCurrent(tm);
-  return Minute=tm.min;
+  return tm.min;
 }
 
 int Seconds() {
@@ -401,50 +401,54 @@ int Seconds() {
   return tm.sec;
 }
 
-datetime TimeDay() {
+datetime TimeDay(datetime TargetTime) {
   MqlDateTime tm;
   TimeToStruct(TargetTime,tm);
   return tm.day;
 }
 
-datetime TimeDayOfWeek() {
+datetime TimeDayOfWeek(datetime TargetTime) {
   MqlDateTime tm;
   TimeToStruct(TargetTime,tm);
   return tm.day_of_week;
 }
 
-datetime TimeDayOfYear() {
+datetime TimeDayOfYear(datetime TargetTime) {
   MqlDateTime tm;
   TimeToStruct(TargetTime,tm);
   return tm.day_of_year;
 }
 
-datetime TimeMonth() {
+datetime TimeMonth(datetime TargetTime) {
   MqlDateTime tm;
   TimeToStruct(TargetTime,tm);
-  return tm.month;
+  return tm.mon;
 }
 
-datetime TimeYear()	{
+int TimeYear(datetime TargetTime)	{
   MqlDateTime tm;
   TimeToStruct(TargetTime,tm);
   return tm.year;
 }
 
-datetime TimeHour() {
+int TimeHour(datetime TargetTime) {
   MqlDateTime tm;
   TimeToStruct(TargetTime,tm);
   return tm.hour;
 }
 
-datetime TimeMinute() {
+int TimeMinute(datetime TargetTime) {
   MqlDateTime tm;
   TimeToStruct(TargetTime,tm);
   return tm.min;
 }
 
-datetime TimeSeconds() {
+int TimeSeconds(datetime TargetTime) {
   MqlDateTime tm;
   TimeToStruct(TargetTime,tm);
   return tm.sec;
+}
+
+datetime StrToTime(string svalue) {
+return StringToTime(svalue);
 }
